@@ -1,78 +1,70 @@
-# Helix AI — Deployment Guide
+# 🧬 Helix AI
 
-## What was fixed
+A premium AI assistant web app built with React + Vite, powered by free AI models via [Pollinations AI](https://pollinations.ai/).
 
-1. **AI not responding** — The original code called the Anthropic API directly from the browser, which is blocked by CORS. A Netlify serverless function (`netlify/functions/chat.js`) now acts as a secure backend proxy.
-2. **Cursor background hover effect** — Removed completely.
-3. **Responsiveness** — Full responsive support added for all screen sizes (mobile, tablet, desktop).
-4. **`netlify.toml`** — Added for proper build, routing, and function configuration.
+**🌐 Live Demo:** [https://nisamcm.netlify.app](https://nisamcm.netlify.app)
 
----
+## ✨ Features
 
-## How to deploy on Netlify
+- 💬 **Multi-Model Support** — Switch between OpenAI, Mistral, Llama, and DeepSeek models
+- 🧠 **Conversation Memory** — Full chat history maintained across messages
+- 🌙 **Dark & Light Themes** — Beautiful UI with smooth transitions
+- 📱 **Fully Responsive** — Works great on desktop, tablet, and mobile
+- ✍️ **Markdown Rendering** — Rich formatted AI responses with syntax highlighting
+- 📋 **Code Blocks** — Syntax-highlighted code with one-click copy
+- 🔄 **Streaming Effect** — Smooth token-by-token text reveal animation
+- 🆓 **100% Free** — No API keys needed, uses Pollinations AI
 
-### Step 1 — Push to GitHub
-Upload this entire project folder to a GitHub repository.
-
-### Step 2 — Connect to Netlify
-1. Go to [netlify.com](https://netlify.com) and log in.
-2. Click **"Add new site" → "Import an existing project"**.
-3. Connect your GitHub account and select the repository.
-
-### Step 3 — Configure build settings
-Netlify will auto-detect these from `netlify.toml`, but verify:
-- **Build command:** `npm run build`
-- **Publish directory:** `dist`
-
-### Step 4 — Add your Anthropic API key ⚠️ REQUIRED
-This is the most important step. Without this, the AI will not work.
-
-1. In your Netlify dashboard, go to **Site configuration → Environment variables**.
-2. Click **"Add a variable"**.
-3. Set:
-   - **Key:** `ANTHROPIC_API_KEY`
-   - **Value:** Your Anthropic API key (get one at [console.anthropic.com](https://console.anthropic.com))
-4. Click **Save**.
-
-### Step 5 — Deploy
-Click **"Deploy site"**. Netlify will build and deploy your project.
-
-### Step 6 — Done!
-Your Helix AI will be live at your Netlify domain (e.g., `helix-ai.netlify.app`).
-
----
-
-## Local development
+## 🚀 Getting Started
 
 ```bash
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-> For local dev with the AI working, you need the [Netlify CLI](https://docs.netlify.com/cli/get-started/):
-> ```bash
-> npm install -g netlify-cli
-> netlify dev
-> ```
-> Then set `ANTHROPIC_API_KEY` in a `.env` file.
+## 🏗️ Tech Stack
 
----
+- **Frontend:** React 18 + Vite
+- **Styling:** Vanilla CSS with CSS Variables
+- **AI Backend:** Pollinations AI (free, no API key)
+- **Serverless:** Netlify Functions
+- **Deployment:** Netlify
 
-## File structure
+## 📁 Project Structure
 
 ```
-helix-ai/
+helix/
+├── src/
+│   ├── App.jsx          # Main application component
+│   ├── Sidebar.jsx      # Chat history sidebar
+│   ├── Panels.jsx       # Settings, About, Contact panels
+│   ├── icons.jsx        # SVG icon components
+│   ├── index.css        # Complete styling
+│   └── main.jsx         # Entry point
 ├── netlify/
 │   └── functions/
-│       └── chat.js          ← Secure API proxy (backend)
-├── src/
-│   ├── App.jsx              ← Main app
-│   ├── Sidebar.jsx
-│   ├── Panels.jsx
-│   ├── Toast.jsx
-│   ├── icons.jsx
-│   └── index.css
-├── netlify.toml             ← Netlify build config
-├── vite.config.js
+│       └── chat.js      # Serverless function for AI API
+├── netlify.toml         # Netlify configuration
 └── package.json
 ```
+
+## 🌐 Deployment (Netlify)
+
+1. Push this repo to GitHub
+2. Go to [Netlify](https://app.netlify.com)
+3. Click **"Add new site"** → **"Import an existing project"**
+4. Connect your GitHub repo
+5. Build settings are auto-configured via `netlify.toml`
+6. Deploy! Your AI agent is live 🎉
+
+## 👨‍💻 Created By
+
+**Zam (Muhammed Nisam CM)** — Developer & Visual Designer from Kerala, India
+
+- 🌐 [muhammednisam.com](https://muhammednisam.com)

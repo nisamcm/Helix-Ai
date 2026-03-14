@@ -299,7 +299,7 @@ export default function App() {
 
   function handleInputChange(e) {
     setInputText(e.target.value)
-    const el = e.target; el.style.height='auto'; el.style.height=Math.min(el.scrollHeight,180)+'px'
+    const el = e.target; el.style.height='auto'; el.style.height=Math.max(48, Math.min(el.scrollHeight,180))+'px'
   }
 
   function fillInput(text) { setInputText(text); inputRef.current?.focus() }
@@ -459,7 +459,7 @@ export default function App() {
             <div style={{position:'relative'}}>
               <button className="model-selector" onClick={()=>setModelDropdownOpen(v=>!v)}>
                 <IconDna/>
-                <span style={{color:activeModel.color}}>{activeModel.name}</span>
+                <span style={{color:'#fff'}}>{activeModel.name}</span>
                 <IconChevronDown/>
               </button>
               {modelDropdownOpen && (
